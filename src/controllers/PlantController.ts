@@ -1,3 +1,4 @@
+import { Plant } from "../entities/Plant";
 import PlantService from "../services/PlantService";
 import { Request, Response } from "express";
 
@@ -20,6 +21,16 @@ class PlantController {
         // Je stocke dans plant l'objet json transmit par le service
           const plant = await this.plantService.getPlantById(Number(req.params.id));
           res.send({ status: "OK", data: plant });
+        } catch (error) {
+          res.status(500).send({ status: "Failed", message: error });
+        }
+      }
+
+      async createPlant(req: Request, res: Response) {
+        try {
+        // Je stocke dans plant l'objet json transmit par le service
+          const newPlant = await this.plantService.createPlant(req.body);
+          res.send({ status: "OK", data: newPlant });
         } catch (error) {
           res.status(500).send({ status: "Failed", message: error });
         }

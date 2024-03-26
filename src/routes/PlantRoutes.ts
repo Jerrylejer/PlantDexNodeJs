@@ -12,6 +12,10 @@ plantRouter.get("/", (req, res) => {
 plantRouter.get("/id/:id", (req, res) => {
     plantController.getPlantById(req, res);
   });
+
+plantRouter.post("/post", (req, res) => {
+    plantController.createPlant(req, res);
+  });
   
 
 export default plantRouter;
