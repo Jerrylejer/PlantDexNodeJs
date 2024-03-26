@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Plant {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     id?: number;
 
     @Column({ nullable: false })
