@@ -28,9 +28,19 @@ class PlantController {
 
       async createPlant(req: Request, res: Response) {
         try {
-        // Je stocke dans plant l'objet json transmit par le service
+        // Je stocke dans newPlant l'objet json transmit par le service
           const newPlant = await this.plantService.createPlant(req.body);
-          res.send({ status: "OK", data: newPlant });
+          res.send({ status: "CREATED", data: newPlant });
+        } catch (error) {
+          res.status(500).send({ status: "Failed", message: error });
+        }
+      }
+
+      async deletePlant(req: Request, res: Response) {
+        try {
+        // Je n'ai rien à stocker, je ne renvoie que le status "DELETED"
+          await this.plantService.deletePlant(req.params.id);
+          res.send({ status: "DELETED" });
         } catch (error) {
           res.status(500).send({ status: "Failed", message: error });
         }

@@ -16,6 +16,10 @@ plantRouter.get("/id/:id", (req, res) => {
 plantRouter.post("/post", (req, res) => {
     plantController.createPlant(req, res);
   });
+
+plantRouter.delete("/delete/:id", (req, res) => {
+    plantController.deletePlant(req, res);
+  });
   
 
 export default plantRouter;
