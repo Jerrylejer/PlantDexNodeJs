@@ -1,5 +1,5 @@
 import AppDataSource from "../data-source";
-import { AppUser } from "../entities/appUser";
+import { AppUser } from "../entities/AppUser";
 
 
 class AppUserService {
@@ -29,3 +29,4 @@ class AppUserService {
         return await this.appUserRepository.update(id, user);
     }
 }
+export default AppUserService;

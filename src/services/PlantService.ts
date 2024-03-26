@@ -5,7 +5,6 @@ import { Plant } from "../entities/Plant";
 class PlantService {
     // Je créé mon repository qui va communiquer avec ma BDD via des reqêtes pré-définies en SQL
     private plantRepository = AppDataSource.getRepository(Plant);
-    
     // Je créé mes appels service qui déclencheront les requêtes CRUD à la BDD
     // Listes de toutes les plantes
     async getAllPlants() {
@@ -29,3 +28,4 @@ class PlantService {
         return await this.plantRepository.update(id, plant);
     }
 }
+export default PlantService;

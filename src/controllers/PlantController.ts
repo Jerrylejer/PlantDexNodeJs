@@ -7,8 +7,19 @@ class PlantController {
 
     async getAllPlants(req: Request, res: Response) {
         try {
+            // Je stocke dans plants ma liste json transmise par le service
           const plants = await this.plantService.getAllPlants();
           res.send({ status: "OK", data: plants });
+        } catch (error) {
+          res.status(500).send({ status: "Failed", message: error });
+        }
+      }
+
+      async getPlantById(req: Request, res: Response) {
+        try {
+        // Je stocke dans plant l'objet json transmit par le service
+          const plant = await this.plantService.getPlantById(Number(req.params.id));
+          res.send({ status: "OK", data: plant });
         } catch (error) {
           res.status(500).send({ status: "Failed", message: error });
         }

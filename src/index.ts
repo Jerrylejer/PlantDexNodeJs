@@ -6,7 +6,7 @@ import plantRouter from "./routes/PlantRoutes";
 AppDataSource.initialize()
 .then(() => {
     const app = express();
-
+    // Mon serveur transforme le contenu body des req entrantes json
     app.use(express.json()); 
     // Je paramètre les restrictions d'accès à l'api via les cors
     app.use(
@@ -17,8 +17,7 @@ AppDataSource.initialize()
         methods: ["GET", "POST", "PUT", "DELETE"],
       })
     ); 
-
-    // Je définie un chemin par défaut avant mes routes
+    // Je définie un chemin par défaut avant mes routes définies dans PlantRoutes.ts
     app.use("/api/plants", plantRouter);
 
     app.listen(process.env.PORT, () => {
