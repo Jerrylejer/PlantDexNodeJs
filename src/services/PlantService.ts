@@ -24,7 +24,7 @@ class PlantService {
         return await this.plantRepository.delete(id);
     }
     // Modifier une plante
-    async updatePlant(id: number, plant: Plant) {
+    async updatePlant(id: string, plant: Plant) {
         return await this.plantRepository.update(id, plant);
     }
 }

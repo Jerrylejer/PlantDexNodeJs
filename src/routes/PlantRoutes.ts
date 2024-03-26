@@ -20,6 +20,10 @@ plantRouter.post("/post", (req, res) => {
 plantRouter.delete("/delete/:id", (req, res) => {
     plantController.deletePlant(req, res);
   });
+
+plantRouter.put("/update/:id", (req, res) => {
+    plantController.updatePlant(req, res);
+  });
   
 
 export default plantRouter;

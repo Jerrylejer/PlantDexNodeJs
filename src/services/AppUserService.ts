@@ -25,7 +25,7 @@ class AppUserService {
         return await this.appUserRepository.delete(id);
     }
     // Modifier un user
-    async updateAppUser(id: number, user: AppUser) {
+    async updateAppUser(id: string, user: AppUser) {
         return await this.appUserRepository.update(id, user);
     }
 }

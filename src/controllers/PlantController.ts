@@ -1,4 +1,3 @@
-import { Plant } from "../entities/Plant";
 import PlantService from "../services/PlantService";
 import { Request, Response } from "express";
 
@@ -18,7 +17,7 @@ class PlantController {
 
       async getPlantById(req: Request, res: Response) {
         try {
-        // Je stocke dans plant l'objet json transmit par le service
+        // Je stocke dans plant l'objet json transmit au service
           const plant = await this.plantService.getPlantById(Number(req.params.id));
           res.send({ status: "OK", data: plant });
         } catch (error) {
@@ -28,7 +27,7 @@ class PlantController {
 
       async createPlant(req: Request, res: Response) {
         try {
-        // Je stocke dans newPlant l'objet json transmit par le service
+        // Je stocke dans newPlant l'objet json transmit au service
           const newPlant = await this.plantService.createPlant(req.body);
           res.send({ status: "CREATED", data: newPlant });
         } catch (error) {
@@ -41,6 +40,17 @@ class PlantController {
         // Je n'ai rien à stocker, je ne renvoie que le status "DELETED"
           await this.plantService.deletePlant(req.params.id);
           res.send({ status: "DELETED" });
+        } catch (error) {
+          res.status(500).send({ status: "Failed", message: error });
+        }
+      }
+
+      async updatePlant(req: Request, res: Response) {
+        try {
+        // Je stocke dans updatedPlant l'objet json transmit au service
+          const updatedPlant = await this.plantService.updatePlant(req.params.id, req.body);
+          console.log("données transmises ", updatedPlant);
+          res.send({ status: "UPDATED", data: updatedPlant });
         } catch (error) {
           res.status(500).send({ status: "Failed", message: error });
         }
