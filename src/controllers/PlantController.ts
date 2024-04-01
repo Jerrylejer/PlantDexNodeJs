@@ -9,7 +9,9 @@ class PlantController {
         try {
             // Je stocke dans plants ma liste json transmise par le service
           const plants = await this.plantService.getAllPlants();
-          res.send({ status: "OK", data: plants });
+          // Voir avec Louis car si je send => res.send({ status: "OK", data: plant });
+          // J'ai des diffiultés pour m'affranchir du type objet et accéder au data:[]
+          res.send(plants);
         } catch (error) {
           res.status(500).send({ status: "Failed", message: error });
         }

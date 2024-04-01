@@ -5,7 +5,7 @@ const plantRouter = Router();
 // Instanciation d'un plantController
 const plantController = new PlantController();
 
-plantRouter.get("/", (req, res) => {
+plantRouter.get("", (req, res) => {
     plantController.getAllPlants(req, res);
   });
 
