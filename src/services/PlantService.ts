@@ -8,7 +8,7 @@ class PlantService {
     // Je créé mes appels service qui déclencheront les requêtes CRUD à la BDD
     // Listes de toutes les plantes
     async getAllPlants() {
-        return this.plantRepository.find();
+        return await this.plantRepository.find();
     }
     // Une plante
     async getPlantById(id: number) {

@@ -1,32 +1,31 @@
 import AppDataSource from "../data-source";
-import { AppUser } from "../entities/AppUser";
+import { Appuser } from "../entities/AppUser";
 
-
-class AppUserService {
-    // Je créé mon repository qui va communiquer avec ma BDD via des reqêtes pré-définies en SQL
-    private appUserRepository = AppDataSource.getRepository(AppUser);
+class AppuserService {
+    // Je créé mon repository qui va communiquer avec ma BDD via des requêtes pré-définies en SQL
+    private appuserRepository = AppDataSource.getRepository(Appuser);
     
     // Je créé mes appels service qui déclencheront les requêtes CRUD à la BDD
     // Listes de tous les users
-    async getAllAppUsers() {
-        return await this.appUserRepository.find();
+    async getAllAppusers() {
+        return await this.appuserRepository.find();
     }
     // Un user
-    async getAppUserById(id: number) {
-        return await this.appUserRepository.findOneBy({id:id});
+    async getAppuserById(id: number) {
+        return await this.appuserRepository.findOneBy({id:id});
     }
     // Ajouter un user 
-    async createAppUser(user: AppUser) {
-        const newUser = this.appUserRepository.create(user);
-        return await this.appUserRepository.save(newUser);
+    async createAppuser(user: Appuser) {
+        const newAppuser = this.appuserRepository.create(user);
+        return await this.appuserRepository.save(newAppuser);
     }
     // Supprimer un user
-    async deleteAppUser(id: string) { 
-        return await this.appUserRepository.delete(id);
+    async deleteAppuser(id: string) { 
+        return await this.appuserRepository.delete(id);
     }
     // Modifier un user
-    async updateAppUser(id: string, user: AppUser) {
-        return await this.appUserRepository.update(id, user);
+    async updateAppuser(id: string, user: Appuser) {
+        return await this.appuserRepository.update(id, user);
     }
 }
-export default AppUserService;
+export default AppuserService;
