@@ -1,5 +1,6 @@
 import { Router} from "express";
 import PlantController from "../controllers/PlantController";
+import checkToken from "../middleware/CheckToken";
 
 const plantRouter = Router();
 // Instanciation d'un plantController

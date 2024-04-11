@@ -149,5 +149,3 @@ INSERT INTO plant(id, nom, soleil, arrosage, categorie, image) VALUES
 (910738, 'Chamaedora (palmier nain) pot déco foncé D24cm', 'beaucoup', 2, 'palmiers d''intérieur', 'https://images.truffaut.com/media/catalog/product/cdn:///Articles/jpg/0910000/910738_001.jpg'),
 (910673, 'Rhapis : pot D24cm', 'beaucoup', 2, 'palmiers d''intérieur', 'https://images.truffaut.com/media/catalog/product/cdn:///Articles/jpg/0910000/910673_001.jpg');
 
--- Insertion des données dans la table AppUser
--- INSERT INTO appUser(id, email, pwd) values (1, 'jerrylejer23@yahoo.fr', 'unMotDePasseBidon');
