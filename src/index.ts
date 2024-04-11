@@ -19,7 +19,8 @@ AppDataSource.initialize()
       })
     ); 
     // Je définie un chemin par défaut avant mes routes définies dans PlantRoutes.ts
-    app.use("/api/plants", plantRouter, appUserRouter);
+    app.use("/api/plants", plantRouter);
+    app.use("/api/users", appUserRouter);
 
     app.listen(process.env.PORT, () => {
       console.log(

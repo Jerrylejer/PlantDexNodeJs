@@ -1,4 +1,4 @@
-import AppuserService from "../services/AppUserService";
+import AppuserService from "../services/AppuserService";
 import { Request, Response } from "express";
 
 class AppuserController {
@@ -59,5 +59,33 @@ class AppuserController {
           res.status(500).send({ status: "Failed", message: error });
         }
       }
+
+      async signup(req: Request, res: Response) {
+        const email = req.body.email;
+        const password = req.body.password;
+        
+        const createUser = await this.appuserService.signup(email, password);
+        console.log("user created => ", createUser);
+
+        if(createUser) {
+          res.status(201).json({ message: "user created"});
+        } else {
+          res.status(500).json({ message: "Server error"});
+        }
+      }
+
+      async login(req: Request, res: Response) {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const token = await this.appuserService.login(email, password);
+        console.log("token", token);
+
+        if(token) {
+          res.status(200).json({token: token});
+        } else {
+          res.status(401).json({message: "wrong credentials"});
+        }
+}
 }
 export default AppuserController;

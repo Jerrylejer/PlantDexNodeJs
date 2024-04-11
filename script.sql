@@ -16,13 +16,12 @@ CREATE TABLE plant (
     image VARCHAR(255)
 );
 
--- J'écrase la table AppUser 
-DROP TABLE IF EXISTS AppUser;
+-- J'écrase la table appUser 
+DROP TABLE IF EXISTS appUser;
 
--- Création de la table User
+-- Création de la table user
 CREATE TABLE appUser (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(30),
     email VARCHAR(255),
     pwd VARCHAR(255)
 );
@@ -151,4 +150,4 @@ INSERT INTO plant(id, nom, soleil, arrosage, categorie, image) VALUES
 (910673, 'Rhapis : pot D24cm', 'beaucoup', 2, 'palmiers d''intérieur', 'https://images.truffaut.com/media/catalog/product/cdn:///Articles/jpg/0910000/910673_001.jpg');
 
 -- Insertion des données dans la table AppUser
-INSERT INTO appUser(id, username, email, pwd) values (1, 'Jérôme', 'jerrylejer23@yahoo.fr', 'unMotDePasseBidon');
+-- INSERT INTO appUser(id, email, pwd) values (1, 'jerrylejer23@yahoo.fr', 'unMotDePasseBidon');
